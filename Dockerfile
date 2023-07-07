@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxrandr-dev \
   && rm -rf /var/lib/apt/lists/*
 
-ARG GODOT_VERSION="4.0.3"
+ARG GODOT_VERSION="4.1"
 ARG RELEASE_NAME="stable"
 ARG SUBDIR=""
 ARG GODOT_TEST_ARGS=""
