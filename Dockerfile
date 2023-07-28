@@ -1,4 +1,4 @@
-from ubuntu:22.04
+FROM ubuntu:22.04 AS base
 LABEL author="gary@lyonritchie.com"
 
 USER root
@@ -24,6 +24,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxi-dev \
   libxrandr-dev \
   && rm -rf /var/lib/apt/lists/*
+
+FROM base AS final
 
 ARG GODOT_VERSION="4.1.1"
 ARG RELEASE_NAME="stable"
