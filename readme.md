@@ -22,7 +22,7 @@ Example layout:
 ## Creating The Image
 
 ```bash
-docker build GODOT_BUILDER/ --tag garyritchie/godot-builder:4.1.1-stable
+docker build GODOT_BUILDER/ --tag garyritchie/godot-builder:4.2.1-stable
 
 docker push -a garyritchie/godot-builder
 ```
@@ -35,7 +35,7 @@ Example, building export templates, with encryption:
 docker run --env-file .env --rm --workdir /godot \
   -v "/$(pwd)/SCENE_GODOT/icon.ico:/godot/platform/windows/godot.ico" \
   -v "/$(pwd)/export_templates:/godot/bin" \
-  garyritchie/godot-builder:4.1.1-stable \
+  garyritchie/godot-builder:4.2.1-stable \
   sh -c "update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix && scons use_lto=yes platform=windows target=template_release optimize=size arch=x86_64"
 ```
 

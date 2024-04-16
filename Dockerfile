@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 FROM base AS final
 
-ARG GODOT_VERSION="4.1.1"
+ARG GODOT_VERSION="4.2.1"
 ARG RELEASE_NAME="stable"
 ARG SUBDIR=""
 ARG GODOT_TEST_ARGS=""
