@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   ca-certificates \
   build-essential \
   mingw-w64 \
+  cmake \
   git \
   git-lfs \
   unzip \
@@ -35,3 +36,11 @@ ARG GODOT_PLATFORM="linux.x86_64"
 
 # RUN git clone https://github.com/godotengine/godot/tree/${GODOT_VERSION}-${RELEASE_NAME}
 RUN git clone --single-branch --branch ${GODOT_VERSION}-${RELEASE_NAME} https://github.com/godotengine/godot.git
+
+## For HTML builds
+# Get the emsdk repo
+RUN git clone https://github.com/emscripten-core/emsdk.git
+SHELL ["/bin/bash", "-c"]
+RUN cd emsdk && ./emsdk install latest && ./emsdk activate latest
+# Enter that directory
+RUN source "/emsdk/emsdk_env.sh"
