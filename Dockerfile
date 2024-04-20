@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxrandr-dev \
   && rm -rf /var/lib/apt/lists/*
 
-FROM base AS final
+FROM base AS godot
 
 ARG GODOT_VERSION="4.2.1"
 ARG RELEASE_NAME="stable"
@@ -36,6 +36,8 @@ ARG GODOT_PLATFORM="linux.x86_64"
 
 # RUN git clone https://github.com/godotengine/godot/tree/${GODOT_VERSION}-${RELEASE_NAME}
 RUN git clone --single-branch --branch ${GODOT_VERSION}-${RELEASE_NAME} https://github.com/godotengine/godot.git
+
+FROM godot AS final
 
 ## For HTML builds
 # Get the emsdk repo
