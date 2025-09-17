@@ -22,7 +22,7 @@ Example layout:
 ## Creating The Image
 
 ```bash
-docker build GODOT_BUILDER/ --tag garyritchie/godot-builder:4.2.1-stable
+docker build GODOT_BUILDER/ --tag garyritchie/godot-builder:4.5-stable
 
 docker push -a garyritchie/godot-builder
 ```
@@ -32,10 +32,11 @@ docker push -a garyritchie/godot-builder
 Example, building export templates, with encryption:
 
 ```bash
+source .makerc && \
 docker run --env-file .env --rm --workdir /godot \
-  -v "/$(pwd)/SCENE_GODOT/icon.ico:/godot/platform/windows/godot.ico" \
+  -v "/$(pwd)/$GODOT_PROJECT/icon.ico:/godot/platform/windows/godot.ico" \
   -v "/$(pwd)/export_templates:/godot/bin" \
-  garyritchie/godot-builder:4.2.1-stable \
+  garyritchie/godot-builder:4.5-stable \
   sh -c "update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix && scons use_lto=yes platform=windows target=template_release optimize=size arch=x86_64"
 ```
 
@@ -44,3 +45,6 @@ and the _.gitignored_ `.env` contains:
 ```ini
 SCRIPT_AES256_ENCRYPTION_KEY=<your key>
 ```
+
+- [Compiling with PCK encryption key](https://docs.godotengine.org/en/stable/engine_details/development/compiling/compiling_with_script_encryption_key.html)
+- https://docs.godotengine.org/en/stable/tutorials/export/changing_application_icon_for_windows.html#doc-changing-application-icon-for-windows
