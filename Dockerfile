@@ -43,6 +43,10 @@ RUN git clone --single-branch --branch ${GODOT_VERSION}-${RELEASE_NAME} https://
 RUN wget https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-${RELEASE_NAME}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux.x86_64.zip
 RUN unzip Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux.x86_64.zip
 
+RUN wget https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-${RELEASE_NAME}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz
+RUN mkdir -p /root/.local/share/godot/export_templates/4.5.stable
+RUN unzip -j Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz -d /root/.local/share/godot/export_templates/4.5.stable
+
 FROM godot AS final
 
 ## For HTML builds
