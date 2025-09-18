@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libudev-dev \
   libxi-dev \
   libxrandr-dev \
+  wget \
   && rm -rf /var/lib/apt/lists/*
 
 FROM base AS godot
@@ -36,6 +37,9 @@ ARG GODOT_PLATFORM="linux.x86_64"
 
 # RUN git clone https://github.com/godotengine/godot/tree/${GODOT_VERSION}-${RELEASE_NAME}
 RUN git clone --single-branch --branch ${GODOT_VERSION}-${RELEASE_NAME} https://github.com/godotengine/godot.git
+
+RUN wget https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-${RELEASE_NAME}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux.x86_64.zip
+RUN unzip Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux.x86_64.zip
 
 FROM godot AS final
 
