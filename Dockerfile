@@ -22,11 +22,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxi-dev \
   libxinerama-dev \
   libxrandr-dev \
+  make \
   mingw-w64 \
+  nodejs \
+  openssh-client \
   pkg-config \
   scons \
   unzip \
   wget \
+  zip \
   && rm -rf /var/lib/apt/lists/*
 
 FROM base AS godot
