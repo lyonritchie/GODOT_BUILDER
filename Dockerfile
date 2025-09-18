@@ -7,23 +7,25 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
   ca-certificates \
   build-essential \
-  mingw-w64 \
   cmake \
+  fontconfig \
   git \
   git-lfs \
-  unzip \
-  scons \
-  pkg-config \
-  libx11-dev \
-  libxcursor-dev \
-  libxinerama-dev \
+  libasound2-dev \
+  libfontconfig \
   libgl1-mesa-dev \
   libglu-dev \
-  libasound2-dev \
   libpulse-dev \
   libudev-dev \
+  libx11-dev \
+  libxcursor-dev \
   libxi-dev \
+  libxinerama-dev \
   libxrandr-dev \
+  mingw-w64 \
+  pkg-config \
+  scons \
+  unzip \
   wget \
   && rm -rf /var/lib/apt/lists/*
 
