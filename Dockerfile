@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   ca-certificates \
   build-essential \
   cmake \
+  curl \
   fontconfig \
   git \
   git-lfs \
@@ -24,7 +25,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxrandr-dev \
   make \
   mingw-w64 \
-  nodejs \
   openssh-client \
   pkg-config \
   scons \
@@ -32,6 +32,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   wget \
   zip \
   && rm -rf /var/lib/apt/lists/*
+
+RUN curl -sL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
+RUN bash nodesource_setup.sh
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  nodejs
 
 FROM base AS godot
 
