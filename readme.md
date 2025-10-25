@@ -28,9 +28,9 @@ Example layout:
 ## Creating The Image
 
 ```bash
-docker build GODOT_BUILDER/ --tag garyritchie/godot-builder:4.5.1-stable
+docker build GODOT_BUILDER/ --tag garyritchie/godot-builder --tag garyritchie/godot-builder:4.5.1-stable
 
-docker push -a garyritchie/godot-builder
+docker push --all-tags garyritchie/godot-builder
 ```
 
 ## Container Usage
