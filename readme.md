@@ -28,8 +28,13 @@ Example layout:
 ## Creating The Image
 
 ```bash
-docker build GODOT_BUILDER/ --tag garyritchie/godot-builder --tag garyritchie/godot-builder:4.5.1-stable
+docker build GODOT_BUILDER/ --tag garyritchie/godot-builder --tag garyritchie/godot-builder:4.5.2-stable
+docker build GODOT_BUILDER/ --tag garyritchie/godot-builder --tag garyritchie/godot-builder:4.5
 
+# Override build arguments:
+docker build --build-arg VERSION=4.7 GODOT_BUILDER/ --tag godot-builder --tag godot-builder:4.7
+
+# This one just for me! Not required:
 docker push --all-tags garyritchie/godot-builder
 ```
 
