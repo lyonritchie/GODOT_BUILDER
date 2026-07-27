@@ -32,7 +32,8 @@ docker build GODOT_BUILDER/ --tag garyritchie/godot-builder --tag garyritchie/go
 docker build GODOT_BUILDER/ --tag garyritchie/godot-builder --tag garyritchie/godot-builder:4.5
 
 # Override build arguments:
-docker build --build-arg VERSION=4.7 GODOT_BUILDER/ --tag godot-builder --tag godot-builder:4.7
+docker build --build-arg GODOT_VERSION=4.7 GODOT_BUILDER/ --tag godot-builder --tag godot-builder:4.7
+docker build --build-arg GODOT_VERSION=4.2.2 --build-arg RELEASE_NAME=stable GODOT_BUILDER/ --tag godot-builder --tag godot-builder:4.2
 
 # This one just for me! Not required:
 docker push --all-tags garyritchie/godot-builder
